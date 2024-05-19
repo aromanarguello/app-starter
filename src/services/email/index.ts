@@ -1,5 +1,5 @@
+import { TransactionalEmailInputInterface } from "@/services/email/types";
 import { LoopsClient } from "loops";
-import { TransactionalEmailInputInterface } from "./types";
 
 export const loops = new LoopsClient(process.env.LOOPS_API_KEY as string);
 

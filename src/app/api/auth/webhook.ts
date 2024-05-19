@@ -73,6 +73,7 @@ export async function POST(req: Request) {
       });
 
       if (isProd) {
+        // Send the sign up event to Loops
         await sendSignUpEvent(newUser);
       }
 
@@ -82,5 +83,5 @@ export async function POST(req: Request) {
       break;
   }
 
-  return new Response("", { status: 201 });
+  return new Response("Success", { status: 201 });
 }
