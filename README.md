@@ -185,6 +185,18 @@ export const sendSignUpEvent = async (user: User) => {
 };
 ```
 
+It also includes a very simple method to send transactional emails that I use everytime:
+
+```javascript
+export const sendTransactionalEmail = ({
+  email,
+  transactionalId,
+  dataVariables,
+}: TransactionalEmailInputInterface) => {
+  return loops.sendTransactionalEmail(transactionalId, email, dataVariables);
+};
+```
+
 ### Payments with Stripe
 
 This starter kit includes a boilerplate for integrating Stripe for payment processing, subscription management, and billing portal functionality.
