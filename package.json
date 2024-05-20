@@ -31,6 +31,7 @@
     "lodash": "^4.17.21",
     "loops": "^2.0.0",
     "lucide-react": "^0.378.0",
+    "micro-cors": "^0.1.1",
     "next": "14.2.3",
     "openai": "^4.47.1",
     "posthog-js": "^1.131.4",
@@ -44,6 +45,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/micro-cors": "^0.1.5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

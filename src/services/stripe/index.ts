@@ -1,4 +1,5 @@
 import { getUserByClerkSub } from "@/app/api/user/actions";
+import { SubscriptionPlanEnum } from "@prisma/client";
 import Stripe from "stripe";
 
 export const stripe = new Stripe(
@@ -17,6 +18,7 @@ interface CreateCheckoutSession {
   priceId: string;
   successUrl: string;
   cancelUrl: string;
+  plan: SubscriptionPlanEnum;
 }
 
 export const getStripeCustomer = async (data: { clerkSub: string }) => {
@@ -43,6 +45,7 @@ export const createCheckoutSession = async ({
   priceId,
   successUrl,
   cancelUrl,
+  plan,
 }: CreateCheckoutSession) => {
   let stripeCustomerId: string;
   const user = await getUserByClerkSub(clerkSub);
@@ -78,6 +81,8 @@ export const createCheckoutSession = async ({
       },
       mode: SUBSCRIPTION,
       metadata: {
+        // [Optional] Add plan as metadata to be used in webhook event
+        plan,
         userId: user.id,
       },
       success_url: successUrl,

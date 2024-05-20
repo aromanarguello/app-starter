@@ -13,13 +13,36 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum SubscriptionPlanEnum {
+  FREE
+  BASIC
+  PRO
+}
+
 model User {
   id       String @id @default(uuid())
   email    String @unique
   clerkSub String @unique @map("clerk_sub")
 
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+  createdAt        DateTime             @default(now()) @map("created_at")
+  updatedAt        DateTime             @updatedAt @map("updated_at")
+  userSubscription UserSubscription?
+  plan             SubscriptionPlanEnum @default(FREE)
 
   @@map("users")
+}
+
+model UserSubscription {
+  id             String    @id @default(uuid())
+  userId         String    @unique() @map("user_id")
+  user           User      @relation(fields: [userId], references: [id])
+  priceId        String    @map("price_id")
+  subscriptionId String    @map("subscription_id")
+  customerId     String    @map("customer_id")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+  canceledAt     DateTime? @map("canceled_at")
+  renewedAt      DateTime? @map("renewed_at")
+
+  @@map("user_subscriptions")
 }
