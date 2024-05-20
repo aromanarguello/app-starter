@@ -2,7 +2,7 @@
 ## Getting Started
 
 ### Database
-By default:
+Default starter kit database setup:
 
 	•	PostgreSQL database
 	•	Managed by Docker
@@ -15,8 +15,8 @@ docker-compose up
 ```
 To perform the initial migration:
 
-	1.	Run `yarn migrate:dev` (or use your preferred package manager).
-	2.	You will be prompted to name your migration. Press Enter to use the default name or provide a custom name.
+1.	Run `yarn migrate:dev` (or use your preferred package manager).
+2.	You will be prompted to name your migration. Press Enter to use the default name or provide a custom name.
 
 This configuration can be swapped out at any time.
 
@@ -111,7 +111,9 @@ const FormComponent = () => {
 The starter kit uses [Clerk](https://clerk.com/) by default. Follow these steps to set up authentication:
 
 1.	Create an account with Clerk and obtain the following keys:
+
 	•	Secret Key
+    
 	•	Publishable Key
 2.	Set up webhooks in the Clerk dashboard to register users in your own database, storing a reference.
 
@@ -203,11 +205,11 @@ This starter kit includes a boilerplate for integrating Stripe for payment proce
 
 Prerequisites
 
-	1.	Stripe Account: Create an account on Stripe if you don’t have one.
+1.	Stripe Account: Create an account on Stripe if you don’t have one.
 
-	2.	Stripe API Keys: Obtain your Stripe Secret Key and Publishable Key from the Stripe Dashboard.
+2.	Stripe API Keys: Obtain your Stripe Secret Key and Publishable Key from the Stripe Dashboard.
 
-Environment Variables
+**Environment Variables**
 
 Add the following environment variables to your `.env` file:
 
