@@ -1,17 +1,15 @@
 import { TransactionalEmailInputInterface } from "@/services/email/types";
+import { User } from "@prisma/client";
 import { LoopsClient } from "loops";
 
 export const loops = new LoopsClient(process.env.LOOPS_API_KEY as string);
 
-export const sendSignUpEvent = async (user: any) => {
+export const sendSignUpEvent = async (user: User) => {
   try {
     await loops.sendEvent({
       email: user.email,
       userId: user.id,
       eventName: "signup",
-      contactProperties: {
-        plan: user.plan,
-      },
     });
   } catch (error) {
     console.error(

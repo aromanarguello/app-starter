@@ -6,3 +6,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const isProd = process.env.NODE_ENV === "production";
+
+export const formMessages = {
+  required: "This field is required",
+  invalid: "This field is invalid",
+};

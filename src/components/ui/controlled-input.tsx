@@ -16,7 +16,7 @@ interface Props {
   min?: number;
 }
 
-export const BaseInput = ({
+export const ControlledInput = ({
   name,
   label,
   placeholder,
