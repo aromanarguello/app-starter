@@ -1,3 +1,5 @@
+import prisma from "@/prisma";
+
 export const getUserByClerkSub = async (clerkSub?: string | null) => {
   if (!clerkSub) {
     console.error(`User not found by Clerk sub: ${clerkSub}`);
