@@ -32,7 +32,7 @@ export const BaseSelect = ({ options, name, label, placeholder }: Props) => {
       render={({ field }) => (
         <FormItem>
           <div className="flex flex-col items-start space-y-2">
-            <FormLabel htmlFor="employment" className="text-right">
+            <FormLabel htmlFor={name} className="text-right">
               {label}
             </FormLabel>
             <div className="w-full">
